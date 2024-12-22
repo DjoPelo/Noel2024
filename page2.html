@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Définition du type de document HTML -->
+    <meta charset="UTF-8"> <!-- Encodage des caractères en UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Optimisation pour les appareils mobiles -->
+    <title>Carte Cadeau - Réparation d'Ordinateur</title> <!-- Titre de la page -->
+    <style>
+        /* Styles généraux pour le corps de la page */
+        body {
+            margin: 0; /* Supprime les marges par défaut */
+            font-family: Arial, sans-serif; /* Police d'écriture */
+            color: #333; /* Couleur du texte */
+            text-align: center; /* Centrage du texte */
+            /*background: linear-gradient(135deg, #006828, #8be2ad); /* Couleur de fond */
+            overflow: hidden; /* Empêche les débordements */
+            background-image: url('background.jpg'); /* Chemin de l'image */
+            background-size: cover; /* Ajuste l'image pour couvrir tout l'écran */
+            background-repeat: no-repeat; /* Évite que l'image se répète */
+            background-position: center; /* Centre l'image */
+        }
+
+        /* Style principal de la carte */
+        .card {
+            position: relative; /* Positionnement relatif pour les éléments enfants */
+            width: 90%; /* Largeur de la carte (90% de l'écran) */
+            max-width: 600px; /* Largeur maximale de la carte */
+            height: auto; /* Hauteur automatique */
+            margin: 50px auto; /* Centrage horizontal et espace vertical */
+            background: white; /* Fond blanc */
+            border-radius: 20px; /* Bords arrondis */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Ombre légère */
+            display: flex; /* Utilisation de flexbox */
+            flex-direction: column; /* Alignement vertical des enfants */
+            justify-content: space-between; /* Espace entre les éléments */
+            border-radius: 10% 10% 10% 10%;
+        }
+
+        /* En-tête de la carte */
+        .card-header {
+            background: linear-gradient(135deg, #d40023, #e46076); /* Dégradé de couleurs */
+            color: white; /* Couleur du texte */
+            padding: 20px; /* Espacement interne */
+            font-size: 1.8em; /* Taille du texte */
+            font-weight: bold; /* Texte en gras */
+            text-align: center; /* Centrage du texte */
+            border-radius: 10% 10% 0% 0%;
+        }
+
+        /* Corps de la carte */
+        .card-body {
+            padding: 20px; /* Espacement interne */
+            text-align: center; /* Centrage des éléments */
+            display: flex; /* Utilisation de flexbox */
+            flex-direction: column; /* Alignement vertical des enfants */
+            align-items: center; /* Centrage horizontal des enfants */
+            flex-grow: 1; /* Permet au corps de la carte de prendre l'espace restant */
+            padding-bottom: 10px; /* Ajoute de l'espace pour éviter que le texte chevauche le pied de page */
+        }
+
+        /* Style de la vidéo */
+        .card-body video {
+            width: 100%; /* Largeur complète */
+            height: auto; /* Hauteur automatique pour garder les proportions */
+            max-width: 560px; /* Largeur maximale */
+            max-height: 315px; /* Hauteur maximale */
+            margin: 10px auto; /* Espacement vertical et centrage */
+            border-radius: 10px; /* Bords arrondis */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère */
+        }
+
+        /* Style du texte descriptif */
+        .card-body p {
+            font-size: 1.2em; /* Taille du texte */
+            color: #555; /* Couleur du texte */
+            margin: 15px 0; /* Espacement vertical */
+        }
+
+        /* Pied de la carte */
+        .card-footer {
+            position: relative; /* Positionnement relatif */
+            width: 100%; /* Largeur complète */
+            background: #d40023; /* Couleur de fond */
+            color: white; /* Couleur du texte */
+            padding: 10px; /* Espacement interne */
+            text-align: center; /* Centrage du texte */
+            font-size: 1.1em; /* Taille du texte */
+            box-sizing: border-box; /* Inclut le padding dans la largeur */
+            border-radius: 0% 0% 10% 10%;
+            display:flex;
+            justify-content: space-between;
+        }
+
+        .img-boule {
+            height: 100%;
+            width: 60px;
+        }
+
+        /* Styles pour les petits écrans (mobile) */
+        @media (max-width: 768px) {
+            .card {
+                width: 95%; /* Augmente la largeur de la carte sur mobile */
+                margin: 20px auto; /* Moins d'espace vertical */
+            }
+
+            .card-header {
+                font-size: 1.5em; /* Réduit la taille de la police sur mobile */
+            }
+
+            .card-body p {
+                font-size: 1em; /* Réduit la taille du texte descriptif */
+            }
+
+            .card-footer {
+                font-size: 1em; /* Réduit la taille du texte du pied de page */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Conteneur principal de la carte -->
+    <div class="card">
+        <!-- En-tête de la carte -->
+        <div class="card-header">
+            Carte Cadeau - Réparation d'Ordinateur
+        </div>
+        <!-- Corps de la carte -->
+        <div class="card-body">
+            <!-- Vidéo avec autoplay et muted -->
+            <video id="videoPlayer" controls autoplay muted>
+                <source src="video.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
+            <!-- Texte descriptif -->
+            <p>Félicitation ! Vous avez gagné la possibilité d'utiliser un ordinateur avec un écran qui fonctionne entièrement</p>
+        </div>
+        <!-- Pied de la carte -->
+        <div class="card-footer">
+            <img class="img-boule" src="boule.png">
+            <p>Valable jusqu'à : <strong>Durée indeterminée</strong></p>
+            <img class="img-boule" src="boule.png">
+        </div>
+    </div>
+
+    <script>
+        // Attendez que la vidéo soit prête pour enlever le "muted" et réactiver le son
+        const video = document.getElementById('videoPlayer');
+        video.onplay = function() {
+            video.muted = false; // Réactive le son après le lancement
+        };
+    </script>
+</body>
+</html>
